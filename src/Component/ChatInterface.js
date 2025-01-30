@@ -68,36 +68,33 @@ const ChatInterface = () => {
         </div>
       </div>
 
-      <div className="flex-1 p-4 overflow-y-auto min-w-full ">
-        <div className="space-y-4">
-          {message.map((message) => (
-            <div
-              key={message.id}
-              className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-            >
-              {message.sender === 'bot' && (
-                <div className="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center mr-2">
-                  <span className="text-white font-bold text-sm">AI</span>
-                </div>
-              )}
-              <div
-                className={`max-w-sm p-3 rounded-2xl ${
-                  message.sender === 'user'
-                    ? 'bg-blue-600 text-white rounded-br-none'
-                    : 'bg-white text-gray-800 rounded-bl-none shadow-sm'
-                }`}
-              >
-                {message.text}
-              </div>
-              {message.sender === 'user' && (
-                <div className="h-8 w-8 rounded-full bg-gray-400 flex items-center justify-center ml-2">
-                  <span className="text-white font-bold text-sm">U</span>
-                </div>
-              )}
-            </div>
-          ))}
+      <div className="flex-1 p-4 overflow-y-auto min-w-full">
+  <div className="space-y-4">
+    {message.map((message) => (
+      <div
+        key={message.id}
+        className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+      >
+        {message.sender === 'bot' && (
+          <div className="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center mr-2 flex-shrink-0">
+            <span className="text-white font-bold text-sm">AI</span>
+          </div>
+        )}
+        <div
+          className={`max-w-sm p-3 rounded-2xl ${message.sender === 'user' ? 'bg-blue-600 text-white rounded-br-none' : 'bg-white text-gray-800 rounded-bl-none shadow-sm'}`}
+        >
+          {message.text}
         </div>
+        {message.sender === 'user' && (
+          <div className="h-8 w-8 rounded-full bg-gray-400 flex items-center justify-center ml-2 flex-shrink-0">
+            <span className="text-white font-bold text-sm">U</span>
+          </div>
+        )}
       </div>
+    ))}
+  </div>
+</div>
+
 
       <div className="p-4 bg-white border-t border-gray-200">
         <form onSubmit={handleSend} className="flex space-x-4">
