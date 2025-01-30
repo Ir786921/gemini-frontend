@@ -28,7 +28,7 @@ const ChatInterface = () => {
 
   const call = async (inputText) => {
     try {
-      const make = await fetch("http://localhost:8020/api/chat", {
+      const make = await fetch("https://gemini-backend-five.vercel.app/api/chat", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
